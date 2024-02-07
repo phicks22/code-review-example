@@ -18,8 +18,15 @@ def z_score(arr: np.array, y: float) -> float:
 
 if __name__ == "__main__":
     parser = ArgumentParser()
-    parser.add_argument("-arr_file", help="An .npy file storing an array to compute z-score against", required=True, type=str)
-    parser.add_argument("-value", help="The value to compute z-score for", required=True, type=float)
+    parser.add_argument(
+        "-arr_file",
+        help="An .npy file storing an array to compute z-score against",
+        required=True,
+        type=str,
+    )
+    parser.add_argument(
+        "-value", help="The value to compute z-score for", required=True, type=float
+    )
     args = parser.parse_args()
 
     # Load data and set variables
