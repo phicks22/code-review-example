@@ -16,6 +16,10 @@ def z_score(arr: np.array, y: float) -> float:
     return z
 
 
+def terrible_function(j, k):
+    return np.sum(np.subtract(np.array(j), np.array(k)))**2
+
+
 if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument(
