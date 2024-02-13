@@ -8,7 +8,7 @@ def z(x, y):
 
 
 def terrible_function(j, k):
-    return np.sum(np.subtract(np.array(j), np.array(k)))**2
+    return (np.sum(np.subtract(np.array(j), np.array(k)))**2) / len(j)
 
 
 x = [1, 2, 3, 4, 5]
