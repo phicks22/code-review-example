@@ -40,14 +40,35 @@ if __name__ == "__main__":
     parser.add_argument(
         "-value", help="The value to compute z-score for", required=True, type=float
     )
+    parser.add_argument(
+        "-y_pred",
+        help="The file containing the predicted probabilities of the model",
+        required=True,
+        type=str,
+    )
+    parser.add_argument(
+        "-y_true",
+        help="The file containing the true labels",
+        required=True,
+        type=str,
+    )
     args = parser.parse_args()
 
-    # Load data and set variables
+    # Set paths
     arr_file = Path(args.arr_file)
+    y_pred_file = Path(args.y_pred)
+    y_true_file = Path(args.y_true)
+
+    # Load data
     arr_of_something = np.load(arr_file)
+    y_pred = np.load(y_pred_file)
+    y_true = np.load(y_true_file)
+
+    # Set value from args
     myValue = args.value
 
     # Compute z-score
     myZ = z_score(arr=arr_of_something, y=myValue)
 
-
+    # Compute mean squared error
+    myMSE = mse(y_pred=y_pred, y_true=y_true)
